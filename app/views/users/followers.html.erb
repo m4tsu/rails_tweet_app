@@ -11,9 +11,9 @@
     
     <ul class="user-tabs">
       <li><%= link_to("投稿", "/users/#{@user.id}") %></li>
-      <li class="active"><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
+      <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
       <li><%= link_to("フォロー", "/users/#{@user.id}/following") %></li>
-      <li><%= link_to("フォロワー", "/users/#{@user.id}/followers") %></li>
+      <li class="active"><%= link_to("フォロワー", "/users/#{@user.id}/followers") %></li>
       <li class="follow_btn">
         <% if Relationship.find_by(follower_id: @current_user.id, followed_id: @user.id) %>
           <%= link_to("フォロー中", "/relationships/#{@user.id}/destroy", {method: "post"})  %>
@@ -23,20 +23,21 @@
       </li>
     </ul>
     
-    <% @likes.each do |like| %>
-      <% post = Post.find_by(id: like.post_id) %>
+    <% @followers.each do |follower| %>
+      <% follower_user = User.find_by(id: follower.follower_id) %>
       
-      <div class="posts-index-item">
-        <div class="post-left">
-          <img src="<%= "/user_images/#{post.user.image_name}" %>">
+      <div class="users-index-item">
+        <div class="user-left">
+          <img src="<%= "/user_images/#{follower_user.image_name}" %>">
         </div>
-        <div class="post-right">
-          <div class="post-user-name">
-            <%= link_to(post.user.name, "/users/#{post.user.id}") %>
-          </div>
-          <%= link_to(post.content, "/posts/#{post.id}") %>
+        <div class="user-right">
+          <%= link_to(follower_user.name, "/users/#{follower_user.id}") %>
         </div>
       </div>
+      
     <% end %>
+    
+    
+    
   </div>
 </div>

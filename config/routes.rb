@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   
+  post "relationships/:followed_id/create" => "relationships#create"
+  post "relationships/:followed_id/destroy" => "relationships#destroy"
+  
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
   get "users/:id/likes" => "users#likes"
+  
+  get "users/:id/following" => "users#following"
+  get "users/:id/followers" => "users#followers"
+  
   
   post "login" => "users#login"
   post "logout" => "users#logout"

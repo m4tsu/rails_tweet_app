@@ -99,6 +99,26 @@
   float: left;
 }
 
+
+
+
+.follow_btn {
+  float: right!important;
+}
+.follow_btn a{
+  margin: 5px 10px;
+  padding: 11px 25px!important;
+  background-color:#3ecdc6;
+  border-radius: 5px;
+  color: white!important;
+  font-weight: bold;
+}
+
+
+
+
+
+
 .user-tabs li.active {
   border-bottom: 2px solid #3ecdc6;
 }
@@ -109,7 +129,7 @@
 
 .user-tabs a {
   display: inline-block;
-  padding: 16px 30px;
+  padding: 16px 25px;
   color: #afb6bf;
 }
 

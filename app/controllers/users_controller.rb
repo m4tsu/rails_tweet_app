@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user, {only: [:index, :show, :edit, :update]}
+  before_action :authenticate_user, {only: [:index, :show, :edit, :update, :following, :followers]}
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
   before_action :ensure_correct_user, {only: [:edit, :update]}
   
@@ -85,11 +85,37 @@ class UsersController < ApplicationController
   
   
   
+  
+  
+  
+  
+  
+  def following?(other_user)
+    following.include?(other_user)
+  end
+  
+  def following
+    @user = User.find_by(id: params[:id])
+    @following = Relationship.where(follower_id: @user.id)
+  end
+  
+  def followers
+    @user = User.find_by(id: params[:id])
+    @followers = Relationship.where(followed_id: @user.id)
+  end
+  
+  
+  
+  
   def ensure_correct_user
     if params[:id].to_i != @current_user.id
       flash[:notice] = "権限がありません"
       redirect_to("/posts/index")
     end
   end
+  
+  
+  
+  
   
 end
