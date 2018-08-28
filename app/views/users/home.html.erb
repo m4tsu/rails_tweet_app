@@ -5,8 +5,8 @@
     </div>
     
     <ul class="user-tabs">
-      <li><%= link_to("ホーム", "/users/#{@user.id}/home") %></li>
-      <li class="active"><%= link_to("投稿", "/users/#{@user.id}") %></li>
+      <li class="active"><%= link_to("ホーム", "/users/#{@user.id}/home") %></li>
+      <li><%= link_to("投稿", "/users/#{@user.id}") %></li>
       <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
       <li><%= link_to("フォロー", "/users/#{@user.id}/following") %></li>
       <li><%= link_to("フォロワー", "/users/#{@user.id}/followers") %></li>
@@ -21,7 +21,7 @@
       </li>
     </ul>
     
-      <% @user.posts.each do |post| %>
+      <% @feed_items.each do |post| %>
         <%= render partial: "layouts/posts_item", locals:{post: post} %>
       <% end %>
     

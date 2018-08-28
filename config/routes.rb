@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post "likes/:post_id/destroy" => "likes#destroy"
   get "users/:id/likes" => "users#likes"
   
+  get "users/:id/home" => "users#home"
   get "users/:id/following" => "users#following"
   get "users/:id/followers" => "users#followers"
   
