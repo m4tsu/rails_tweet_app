@@ -1,9 +1,10 @@
 <div class="main posts-index">
   <div class="container">
     
+    <%= render partial: "layouts/search_form", locals:{path: posts_index_path, model_name: "投稿"} %>
     
     <% @posts.each do |post| %>
-      <%= render partial: "layouts/posts_item", locals:{post: post} %>
+      <%= render partial: "posts/posts_item", locals:{post: post} %>
     <% end %>
     
     

@@ -1,0 +1,10 @@
+<div class="user-tabs">
+  <ul>
+    <li class="active"><%= link_to("ホーム", "/users/#{@user.id}/home") %></li>
+    <li><%= link_to("投稿", "/users/#{@user.id}") %></li>
+    <li><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
+    <li><%= link_to("フォロー", "/users/#{@user.id}/following") %></li>
+    <li><%= link_to("フォロワー", "/users/#{@user.id}/followers") %></li>
+  </ul>
+    <%= render partial: "users/follow_form" %>
+</div>

@@ -1,0 +1,7 @@
+<div class="search_form">
+  <p><%= model_name %>検索</p>
+  <%= form_tag(path, :method => 'get') do %>
+    <%= text_field_tag :search %>
+    <%= button_tag '検索', :name => nil, class: "search_btn" %>
+  <% end %>
+</div>

@@ -4,15 +4,21 @@ class RelationshipsController < ApplicationController
   
   
   def create
-    user = User.find_by(id: params[:followed_id])
-    @current_user.follow(user)
-    redirect_to("/users/#{user.id}")
+    @user = User.find_by(id: params[:followed_id])
+    @current_user.follow(@user)
+    respond_to do |format|
+      format.html { redirect_to("/users/#{@user.id}") }
+      format.js
+    end
   end
 
   def destroy
-    user = User.find_by(id: params[:followed_id])
-    @current_user.unfollow(user)
-    redirect_to("/users/#{user.id}")
+    @user = User.find_by(id: params[:followed_id])
+    @current_user.unfollow(@user)
+    respond_to do |format|
+      format.html { redirect_to("/users/#{@user.id}") }
+      format.js
+    end
   end
   
   def forbid_following_yourself

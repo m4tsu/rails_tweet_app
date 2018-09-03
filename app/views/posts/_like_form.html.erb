@@ -1,0 +1,11 @@
+<span id="like_form">
+  <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+    <%= render 'posts/unlike' %>
+  <% else %>
+    <%= render 'posts/like' %>
+  <% end %>
+  
+</span>
+<span id="likes_count">
+    <%= @likes_count %>
+</span>

@@ -4,25 +4,20 @@
       <%= render partial: "users/user" %>
     </div>
     
-    <ul class="user-tabs">
-      <li><%= link_to("投稿", "/users/#{@user.id}") %></li>
-      <li class="active"><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
-      <li><%= link_to("フォロー", "/users/#{@user.id}/following") %></li>
-      <li><%= link_to("フォロワー", "/users/#{@user.id}/followers") %></li>
-      <li class="follow_btn">
-        <% if @current_user == @user %>
-          <%= link_to("編集", "/users/#{@user.id}/edit") %>
-        <% elsif Relationship.find_by(follower_id: @current_user.id, followed_id: @user.id) %>
-          <%= link_to("フォロー中", "/relationships/#{@user.id}/destroy", {method: "post"})  %>
-        <% else %>
-          <%= link_to("フォローする", "/relationships/#{@user.id}/create", {method: "post"})  %>
-        <% end %>
-      </li>
-    </ul>
+    <div class="user-tabs">
+      <ul>
+        <li><%= link_to("ホーム", "/users/#{@user.id}/home") %></li>
+        <li><%= link_to("投稿", "/users/#{@user.id}") %></li>
+        <li class="active"><%= link_to("いいね!", "/users/#{@user.id}/likes") %></li>
+        <li><%= link_to("フォロー", "/users/#{@user.id}/following") %></li>
+        <li><%= link_to("フォロワー", "/users/#{@user.id}/followers") %></li>
+      </ul>
+        <%= render partial: "users/follow_form" %>
+    </div>
     
     <% @likes.each do |like| %>
       <% post = Post.find_by(id: like.post_id) %>
-        <%= render partial: "layouts/posts_item", locals:{post: post} %>
+        <%= render partial: "posts/posts_item", locals:{post: post} %>
     <% end %>
   </div>
 </div>

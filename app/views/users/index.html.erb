@@ -4,15 +4,11 @@
     
     <%= will_paginate  %>
     
+    
+    <%= render partial: "layouts/search_form", locals:{path: users_index_path, model_name: "ユーザー"} %>
+    
     <% @users.each do |user| %>
-      <div class="users-index-item">
-        <div class="user-left">
-          <img src="<%= "/user_images/#{user.image_name}" %>">
-        </div>
-        <div class="user-right">
-          <%= link_to(user.name, "/users/#{user.id}") %>
-        </div>
-      </div>
+      <%= render partial: "users/users_item", locals:{user: user} %>
     <% end %>
     
     <%= will_paginate %>

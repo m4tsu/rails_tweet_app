@@ -1,0 +1,11 @@
+<div id ="follow_form">
+  
+<% if @current_user == @user %>
+  <%= link_to("編集", "/users/#{@user.id}/edit") %>
+<% elsif Relationship.find_by(follower_id: @current_user.id, followed_id: @user.id) %>
+  <%= render 'users/unfollow' %>
+<% else %>
+  <%= render "users/follow" %>
+<% end %>
+
+</div>

@@ -47,6 +47,9 @@
   vertical-align: middle;
 }
 
+
+
+
 /* users/show ================================ */
 .user-show {
   text-align: center;
@@ -102,10 +105,13 @@
 
 
 
-.follow_btn {
+#follow_form {
   float: right!important;
+  
 }
-.follow_btn a{
+
+#follow_form a {
+  width: 140px;
   margin: 5px 10px;
   padding: 11px 25px!important;
   background-color:#3ecdc6;
@@ -136,4 +142,8 @@
 /* users/new, users/edit ================================ */
 .users-form input {
   margin-bottom: 15px;
+}
+
+.search_form{
+  margin: 20px 0;
 }
