@@ -3,8 +3,7 @@
     <h1 class="users-heading">ユーザー一覧</h1>
     
     <%= will_paginate  %>
-    
-    
+
     <%= render partial: "layouts/search_form", locals:{path: users_index_path, model_name: "ユーザー"} %>
     
     <% @users.each do |user| %>

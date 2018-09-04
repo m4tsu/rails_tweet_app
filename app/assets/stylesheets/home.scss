@@ -151,31 +151,39 @@ header {
 
 /* about ================================ */
 .about-main {
-  padding: 180px 8% 0;
+  padding: 100px 8% 0;
   color: white;
 }
 
 .about-main h2 {
-  font-size: 64px;
+  font-size: 56px;
   font-weight: 500;
   line-height: 1.4;
+  text-align: center;
 }
 
 .about-main p {
   font-weight: 200;
-  font-size: 20px;
+  font-size: 18px;
 }
-
+.about-main a{
+  font-weight: 200;
+  font-size: 18px;
+  color: white;
+  text-decoration: underline;
+}
 .about-img {
   width: 84%;
 }
 
 /* フォーム================================ */
 .form {
-  max-width: 600px;
+  width: 600px;
   margin: 0 auto;
   background-color: white;
   box-shadow: 0 2px 6px #c1ced7;
+  overflow: hidden;
+  border-radius: 5px;
 }
 
 .form-heading {
@@ -227,6 +235,49 @@ header {
   display: table;
   clear: both;
 }
+
+.form p {
+  font-size: 24px;
+  margin-top: 20px;
+  text-align: center;
+  color: #bcc8d4;
+}
+
+/* form modalテスト ========================== */
+.post_modal {
+  display: none;
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: block;
+}
+
+.modal-form {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateY(0) translateX(-50%);
+  height: auto;
+  
+  display: block;
+  overflow: hidden;
+}
+
+.fa-times {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: rgba(128, 128, 128, 0.46);
+  cursor: pointer;
+}
+
 
 /* フラッシュ ================================ */
 .flash {

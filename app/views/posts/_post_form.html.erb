@@ -1,0 +1,26 @@
+<div class="main posts-new modal-wrapper">
+  
+  <div class="modal-form">
+    <div class="close-modal">
+        <i class="fa fa fa-2x fa-times"></i>
+    </div>
+    <div class="form">
+      <p>投稿する</p>
+      <%= form_tag("/posts/create", remote: true) do %>
+      <div class="error_message"></div>
+      <div class="form-body">
+        <textarea name="content"></textarea>
+        <input type="submit" value="投稿">
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function(){
+    $(".close-modal").click(function(){
+      $(".modal-wrapper").fadeOut();
+    });
+  });
+</script>

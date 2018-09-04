@@ -1,0 +1,5 @@
+<% if @status == "fail" %>
+  $(".error_message").html("<%= escape_javascript(render 'layouts/error_message') %>");
+<% else %>
+  $(".modal-wrapper").fadeOut();
+<% end %>

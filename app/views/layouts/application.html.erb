@@ -24,7 +24,7 @@
             <%= link_to("投稿一覧", "/posts/index") %>
           </li>
           <li>
-            <%= link_to("新規投稿", "/posts/new") %>
+            <%= link_to("新規投稿", "/posts/new", remote: true) %>
           </li>
           <li>
             <%= link_to("ユーザー一覧", "/users/index") %>
@@ -34,7 +34,7 @@
           </li>
         <% else %>
           <li>
-            <%= link_to("TweetAppとは", "/about") %>
+            <%= link_to("About", "/about") %>
           </li>
           <li>
             <%= link_to("新規登録", "/signup") %>
@@ -46,10 +46,12 @@
       </ul>
     </header>
       <% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <div class="post_modal"></div>
     <%= yield %>
+    
   </body>
 </html>

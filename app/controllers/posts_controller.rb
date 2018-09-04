@@ -17,15 +17,23 @@ class PostsController < ApplicationController
   
   def new
     @post = Post.new
+    respond_to do |format| 
+            format.html { redirect_to("/posts/new") }
+            format.js
+    end
   end
   
   def create
     @post = Post.new(content: params[:content], user_id: @current_user.id)
-    if @post.save
-      flash[:notice] ="投稿しました"
-      redirect_to("/posts/index")
-    else
-      render("posts/new")
+    respond_to do |format|
+      if @post.save
+        flash[:notice] ="投稿しました"
+        format.html { redirect_to("/posts/index") }
+        format.js {  render js: "window.location = '/posts/index'" }
+      else
+        format.html { render("/posts/new") }
+        format.js { @status = "fail" }
+      end
     end
   end
   
@@ -57,6 +65,11 @@ class PostsController < ApplicationController
       flash[:notice] = "権限がありません"
       redirect_to("/posts/index")
     end
+  end
+  
+  def aaa
+    
+    
   end
   
   
